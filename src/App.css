@@ -1,5 +1,48 @@
 .App {
   text-align: center;
+  font-weight: bold;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 720px;
+}
+
+.playgroundPreview_1mpV {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom-left-radius: var(--ifm-global-radius);
+  border-bottom-right-radius: var(--ifm-global-radius);
+  position: relative;
+  padding: 1rem;
+}
+
+.title_site {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.button_gap {
+  margin-top: 25px;
+}
+
+.dropdown {
+  z-index: 1001;
+}
+
+.map_lower {
+  top: 30px;
+}
+
+.title {
+  width:500px;
+  margin: 0 auto;
+  /*background: rgb(255, 255, 255);*/
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  border: solid;
 }
 
 .App-logo {
@@ -28,11 +71,19 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.blockcentering {
+  text-align: center;
+}
+
+.mapsize {
+  height: 80%;
+  width: 80%;
+}
+
+.span {
+  margin: 0 10px;
+}
+
+.selectreact {
+  width: 50px;
 }
