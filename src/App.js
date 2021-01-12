@@ -8,9 +8,9 @@ import Select from 'react-select';
 import { yearOptions, communitiesOptions } from './data/color';
 import metropole from "./data/metropole.json";
 import { Line } from 'react-chartjs-2';
- 
+
 import "./App.css";
- 
+
 function Option(props) {
   const {
     children,
@@ -42,7 +42,7 @@ function Option(props) {
     </div>
   );
 }
- 
+
 const style = {
   fillColor: '#F28F3B',
   weight: 2,
@@ -51,15 +51,15 @@ const style = {
   dashArray: '3',
   fillOpacity: 0.5
 }
- 
- 
+
+
 function App() {
   const [selectedCountry, setSelectedCountry] = useState(communitiesOptions[0].value.substr(0,3));
   const [selectedYear, setSelectedYear] = useState(yearOptions[0].value);
   const [updatedLinesData, setUpdatedLinesData] = useState(linesData);
   const [updatedStData, setUpdatedStData] = useState(stData);
-  const [showStats, setShowStats] = useState(stData);  
- 
+  const [showStats, setShowStats] = useState(false);  
+  
   useEffect(() => {
     const dfName = selectedCountry.concat(selectedYear);
     const tempLinesData = linesData.filter(el => el.dfname.includes(dfName));
@@ -67,22 +67,22 @@ function App() {
     setUpdatedLinesData(tempLinesData);
     setUpdatedStData(tempStData);
   }, [selectedYear, selectedCountry])
- 
+
   const handleCountrySelect = (e) => {
     setSelectedCountry(e.value)
   }
- 
+
   const handleYearSelect = (e) => {
     setSelectedYear(e.value)
   }
- 
+
   const handleStatsClick = () => {
     setShowStats(true);
   }
   const handleMapClick = () => {
     setShowStats(false);
   }
- 
+
   return (
     <div>
       <div className = 'blockcentering'>
@@ -129,7 +129,7 @@ function App() {
           <Button variant="dark" onClick={handleStatsClick} >Stats</Button>{' '}
         </div>   
       </div>
- 
+      
       { !showStats &&  
         <div className = 'playgroundPreview_1mpV map_lower'>
           <MapContainer center={[46.71111,1.7191]} zoom={6}>
@@ -146,7 +146,7 @@ function App() {
                 fillOpacity: 0.3,
               })}
             />
- 
+
             {updatedLinesData.map(line => (
               <Polyline positions={[[
                 line.sourcelat,
@@ -161,13 +161,13 @@ function App() {
                 ]}
               />*/
             ))}
- 
+
             {updatedStData.map(st => (
               /*<CircleMarker 
               center={[
                 st.latitude,
                 st.longitude]}
- 
+              
               />*/
               <CircleMarker center={[
                 st.latitude,
@@ -185,14 +185,14 @@ function App() {
           </MapContainer>
         </div> 
       }
- 
+
       { showStats &&
         <h1>Stats</h1>
       }
     </div>
   )
   }
- 
- 
- 
+
+
+
 export default App;
