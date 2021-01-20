@@ -19,7 +19,7 @@ export const yearOptions = [
     { value: '2018', label: '2018'}];
 
 export const communitiesOptions = [
-    { value: 'france', label: 'France'},
+    { value: 'fra', label: 'France'},
     { value: 'uk', label: 'United Kingdom'},
     { value: 'usa', label: 'United States'},
     { value: 'spa', label: 'Spain'},
